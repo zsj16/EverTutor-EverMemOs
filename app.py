@@ -506,11 +506,10 @@ else:
             if prompt := st.chat_input("Tell me what you'd like to learn or ask a question..."):
                 active_session["messages"].append({"role": "user", "content": prompt})
                 
-                # 1. Store user message in EverMemOS
                 try:
                     sync_store_memory(st.session_state.current_session_id, prompt, sender="User")
-                except Exception as e:
-                    pass # Ensure UI doesn't crash if backend API is not running initially
+                except Exception:
+                    pass
                 
                 # Auto-rename session
                 if active_session["name"] == "New Learning Topic" and active_session["knowledge_tree"] is None:
@@ -521,7 +520,6 @@ else:
                     st.markdown(prompt)
                     
                 with st.chat_message("assistant"):
-                    # 2. Retrieve Past Interactive Context
                     with st.spinner("🧠 Querying Episodic Memory..."):
                         mem_context = ""
                         try:
@@ -557,7 +555,6 @@ else:
                             st.rerun()
                     else:
                         with st.spinner("EverTutor AI Processing..."):
-                            # 3. Create context-aware generation using the standard LLM API
                             recent_msgs = active_session["messages"][-5:]
                             llm_messages = [{"role": m["role"], "content": m["content"]} for m in recent_msgs]
                             
@@ -569,7 +566,6 @@ else:
                             st.markdown(reply)
                             active_session["messages"].append({"role": "assistant", "content": reply})
                             
-                            # 4. Store assistant reply in EverMemOS
                             try:
                                 sync_store_memory(st.session_state.current_session_id, reply, sender="EverTutor")
                             except: pass

@@ -60,7 +60,8 @@ streamlit run ever_tutor/app.py
 ---
 
 ## 📺 Video Demo
-*(Add your 3-5 minute YouTube/Vimeo link here demonstrating your Socratic learning flow and memory persistence)*
+You can view the project demonstration video directly below (ensure you have downloaded the `demo.mp4` file included in this repository if it does not render):
 
-## 🌐 Live Demo
-*(Insert deployment URL here if hosted on Streamlit Community Cloud or Vercel)*
+![EverTutor Demo](demo.mp4)
+
+*(Note: If the embedded video does not play in your environment, please download the `demo.mp4` file located in the root of this repository to watch locally).*
