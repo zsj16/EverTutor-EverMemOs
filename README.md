@@ -60,8 +60,7 @@ streamlit run ever_tutor/app.py
 ---
 
 ## 📺 Video Demo
-You can view the project demonstration video directly below (ensure you have downloaded the `demo.mp4` file included in this repository if it does not render):
 
 ![EverTutor Demo](demo.mp4)
-
+https://youtu.be/U4PoIztb4zg
 *(Note: If the embedded video does not play in your environment, please download the `demo.mp4` file located in the root of this repository to watch locally).*
